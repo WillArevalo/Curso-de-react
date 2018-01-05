@@ -1,5 +1,5 @@
 {
-  "name": "video-platzi",
+  "name": "platzi-video",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -40,7 +40,7 @@
     "webpack-dev-server": "2.9.3"
   },
   "dependencies": {
-    "react": "^16.2.0",
-    "react-dom": "^16.2.0"
+    "react": "16.2.0",
+    "react-dom": "16.2.0"
   }
 }
