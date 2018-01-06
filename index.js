@@ -13,5 +13,5 @@ const app = document.getElementById('app')
 //Creando un componente para renderizar
 //const holaMundo = <h1>Hola Mundo :) </h1>;
 //Le enviamos propiedades al componente
-ReactDom.render(<Media title="¿Qué es responsive Design?" author="Will Arevalo" image="./images/covers/responsive.jpg"/>, app);
+ReactDom.render(<Media type="video" title="¿Qué es responsive Design?" author="Will Arevalo" image="./images/covers/responsive.jpg"/>, app);
 //En este punto ejecuto en cli el comando npm run build:prod

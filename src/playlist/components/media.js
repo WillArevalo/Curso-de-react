@@ -1,4 +1,6 @@
 import React from 'react';
+//Importamos un validador de datos en propiedades
+import PropTypes from 'prop-types';
 //Importando estilos
 import './media.css';
 class Media extends React.Component {
@@ -15,6 +17,15 @@ class Media extends React.Component {
 			</div>
 		)
 	}
+}
+//Le asignamos los proptypes a nuestro componente media
+Media.proptypes = {
+	image: PropTypes.string,
+	//Si quiero que mi parametro sea requerido
+	title: PropTypes.string.isRequired,
+	author: PropTypes.string,
+	//Si quiero escojer entre un tipo u otro unicamnete
+	type: PropTypes.oneOf(['video','audio']),
 }
 
 export default Media;
