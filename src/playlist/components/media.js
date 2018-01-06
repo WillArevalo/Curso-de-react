@@ -4,11 +4,21 @@ import PropTypes from 'prop-types';
 //Importando estilos
 import './media.css';
 class Media extends React.Component {
+	//constructor con EMC6
+	// constructor(props){
+	// 	super(props)
+	// 	this.handleClick = this.handleClick.bind(this);
+	// }
+	//Creamos la funcion que se ejecuta cuando sea click en el div
+	handleClick = (event) => {
+		console.log(this.props.image)
+	}
 	render(){
 		//recojiendo las propiedades
 		const { title, author, image } = this.props;
 		return(
-			<div className="Media">
+			//Creamos un escuchador de eventos con onClick
+			<div className="Media" onClick={this.handleClick}>
 				<div className="Media-cover">
 					<img className="Media-image" src={image} alt="" width={260} height={160}/>
 					<h3 className="Media-title">{title}</h3>
