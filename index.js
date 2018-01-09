@@ -1,17 +1,17 @@
 //Importo react y react-dom
 import React from 'react';
 //React sirve para crear los componentes
-import ReactDom from 'react-dom';
+import { render } from 'react-dom';
 //Reactdom para renderizar o colocar los componentes en el dom
-import Media from './src/playlist/components/media.js';
-//importo media 
-//console.log("Hola mundo");
+import Contenido from './src/playlist/components/content.js';
+//importo playlist que contiene media
+import data from './src/api.json';
+//importo la bd provisoria
 
 //Referencio el elemento en donde estara vivo react
 const app = document.getElementById('app')
-//ReactDom.render(que voy a renderizar(elemento, o componente), donde lo haré(en que parte del dom));
-//Creando un componente para renderizar
-//const holaMundo = <h1>Hola Mundo :) </h1>;
+
+//ReactDom.render(que voy a renderizar(elemento, o componente), o solo render() depende de como lo hallamos declarado donde lo haré(en que parte del dom));
 //Le enviamos propiedades al componente
-ReactDom.render(<Media type="video" title="¿Qué es responsive Design?" author="Will Arevalo" image="./images/covers/responsive.jpg"/>, app);
+render(<Contenido data = {data}/>, app);
 //En este punto ejecuto en cli el comando npm run build:prod
