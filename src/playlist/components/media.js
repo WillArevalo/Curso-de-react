@@ -1,9 +1,12 @@
-import React from 'react';
+import React, { PureComponent } from 'react';
 //Importamos un validador de datos en propiedades
 import PropTypes from 'prop-types';
 //Importando estilos
 import './media.css';
-class Media extends React.Component {
+
+//Cambiamos a nuestro componente por un componente puro que no sera 
+//re-renderizado su recibe las mismas propiedades
+class Media extends PureComponent {
 	// Para utilizar el estado de los componentes y poder utilizar datos dinamicos inicializamos
 	//los estados
 	//seteamos los valores iniciales del estado
