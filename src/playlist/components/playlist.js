@@ -1,30 +1,47 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Media from './media.js';
-import './playlist.css';
 
-class Playlist extends Component{
-	render() {
-		const {titulo, descripcion, lista} = this.props // --- playlist
+//material
+import { withStyles } from 'material-ui/styles';
+import Grid from 'material-ui/Grid';
+import Typography from 'material-ui/Typography';
+
+const styles = theme => ({
+  root: {
+    flexGrow: 1,
+    marginTop: 30,
+  },
+  playlist: {
+  	marginLeft: 10,
+  }
+});
+
+function Playlist(props){
+		const { classes } = props;
+		const {titulo, descripcion, lista} = props // --- playlist
 		return (
-			<div className = "Playlist">
-				<h1 className = "Playlist-titulo">{titulo}</h1>
-				<h4 className = "Playlist-descripcion">{descripcion}</h4>
-				<div className = "Playlist-scroller">
+			<div className = {classes.playlist}>
+				<Typography type="display3" gutterBottom>
+					{titulo}
+				</Typography>
+				<Typography type="headline" gutterBottom>
+					{descripcion}
+				</Typography>
+				<Grid container>
 					{
 						lista.map( item => {
 							return <Media
-											title  = {item.title} 
-											author = {item.author} 
-											cover  = {item.cover} 
-											type   = {item.type}
-											key    = {item.id}
-										/>
+										title  = {item.title} 
+										author = {item.author} 
+										cover  = {item.cover} 
+										type   = {item.type}
+										key    = {item.id}
+									/>
 						})
 					}
-				</div>
+				</Grid>
 			</div>
 		)
-	}
 }
 
-export default Playlist;
+export default withStyles(styles)(Playlist);

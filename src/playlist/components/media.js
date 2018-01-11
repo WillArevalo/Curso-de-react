@@ -1,9 +1,26 @@
+//con material-ui-next
+import { withStyles } from 'material-ui/styles';
+import Card, { CardActions, CardContent, CardMedia } from 'material-ui/Card';
+import Typography from 'material-ui/Typography';
+import Grid from 'material-ui/Grid';
+
 import React from 'react';
 //Importamos un validador de datos en propiedades
 import PropTypes from 'prop-types';
-//Importando estilos
-import './media.css';
-class Media extends React.Component {
+
+const styles = {
+  card: {
+    width: 290,
+    marginRight: 10,
+    marginBottom: 10,
+    cursor: 'pointer',
+  },
+  media: {
+    height: '200px',
+  },
+};
+function Media(props) {
+	const { classes } = props;
 	// Para utilizar el estado de los componentes y poder utilizar datos dinamicos inicializamos
 	//los estados
 	//seteamos los valores iniciales del estado
@@ -22,18 +39,31 @@ class Media extends React.Component {
 	// 		author: 'Ricardo Celis'
 	// 	})
 	// }
-	render(){
-		return(
-			//Creamos un escuchador de eventos con onClick
-			<div className="Media" onClick={this.handleClick}>
-				<div className="Media-cover">
-					<img className="Media-image" src={this.props.cover} alt="" width={260} height={160}/>
-					<h3 className="Media-title">{this.props.title}</h3>
-					<p className="Media-author">{this.props.author}</p>
-				</div>
-			</div>
-		)
-	}
+
+	return(
+		//Creamos un escuchador de eventos con onClick
+		<div>
+			<Grid item xs={12} sm={12}>
+			<Card className={classes.card}>
+				<CardMedia 
+					width={290} 
+					height={200}
+					className={classes.media}
+			        image={props.cover}
+			        title="cover"
+				/>
+				<CardContent>
+		          <Typography type="headline" component="h2">
+		            {props.title}
+		          </Typography>
+		          <Typography component="p">
+		            {props.author}
+		          </Typography>
+		        </CardContent>
+			</Card>
+			</Grid>
+		</div>
+	)
 }
 //Le asignamos los proptypes a nuestro componente media
 Media.proptypes = {
@@ -45,4 +75,4 @@ Media.proptypes = {
 	type: PropTypes.oneOf(['video','audio']),
 }
 
-export default Media;
+export default withStyles(styles)(Media);
