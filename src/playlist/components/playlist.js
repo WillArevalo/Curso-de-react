@@ -12,8 +12,8 @@ function Playlist(props) {
 	const {titulo, descripcion, lista} = props // --- playlist
 	return (
 		<div className = "Playlist">
+			<h2 className = "Playlist-descripcion">{descripcion}</h2>
 			<h1 className = "Playlist-titulo">{titulo}</h1>
-			<h4 className = "Playlist-descripcion">{descripcion}</h4>
 			<Play
 				size={20}
 				color="#A0AABF"
@@ -38,12 +38,12 @@ function Playlist(props) {
 				{
 					lista.map( item => {
 						return <Media
-										title  = {item.title} 
-										author = {item.author} 
-										cover  = {item.cover} 
-										type   = {item.type}
-										key    = {item.id}
-									/>
+									title  = {item.title} 
+									author = {item.author} 
+									cover  = {item.cover} 
+									type   = {item.type}
+									key    = {item.id}
+								/>
 					})
 				}
 			</div>
