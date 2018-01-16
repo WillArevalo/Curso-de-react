@@ -21,11 +21,11 @@ function Playlist(props){
 		const {titulo, descripcion, lista} = props // --- playlist
 		return (
 			<div className = {classes.playlist}>
-				<Typography type="display3" gutterBottom>
-					{titulo}
-				</Typography>
 				<Typography type="headline" gutterBottom>
 					{descripcion}
+				</Typography>
+				<Typography type="display1" gutterBottom>
+					{titulo}
 				</Typography>
 				<Grid container>
 					{
