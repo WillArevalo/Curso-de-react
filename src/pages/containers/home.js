@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import HomeLayout from '../components/home-layout.js';
+import Categories from '../../categories/components/categories.js';
 
 class Home extends Component {
 	render(){
-		return(
+		return (
 			<HomeLayout> 
-				Ola k ase
+				<Categories categories={this.props.data.categories} />
 			</HomeLayout>
 		)
 	}

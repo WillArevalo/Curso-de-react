@@ -14,5 +14,5 @@ const app = document.getElementById('app')
 
 //ReactDom.render(que voy a renderizar(elemento, o componente), o solo render() depende de como lo hallamos declarado donde lo haré(en que parte del dom));
 //Le enviamos propiedades al componente
-render(<Home />, app);
+render(<Home data={data} />, app);
 //En este punto ejecuto en cli el comando npm run build:prod
