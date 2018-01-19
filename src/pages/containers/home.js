@@ -7,10 +7,16 @@ import Modal from '../../widgets/components/modal.js';
 
 class Home extends Component {
 	state = {
-		modalVisible: true,
+		modalVisible: false,
+	}
+	handleOpenModal = () => {
+		//Esto sirve para setear estados
+		this.setState({
+			modalVisible:true,
+		})
 	}
 	//Funcion de handleClick
-	handleCloseModalClick = (event) => {
+	handleCloseModal = (event) => {
 		this.setState({
 			modalVisible: false,
 		})
@@ -19,15 +25,12 @@ class Home extends Component {
 		return (
 			<HomeLayout> 
 				<Related />
-				<Categories categories={this.props.data.categories} />
-				{
-					this.state.modalVisible &&
-					<ModalContainer>
-						<Modal handleClick={this.handleCloseModalClick}>
-							<h1>Hola</h1>
-						</Modal>
-					</ModalContainer>
-				}
+				<Categories categories={this.props.data.categories}/>
+				<Modal>
+					<h1>
+						Esto es un portal
+					</h1>
+				</Modal>
 			</HomeLayout>
 		)//Haciendo condicionales(ternarios) si es true con la && seguria al siguiente comando
 	}
