@@ -28,7 +28,7 @@ class Media extends PureComponent {
 	render(){
 		return(
 			//Creamos un escuchador de eventos con onClick
-			<div className="Media" onClick={this.handleClick}>
+			<div className="Media" onClick={this.props.handleClick}>
 				<div className="Media-cover">
 					<img className="Media-image" src={this.props.cover} alt="" width={260} height={160}/>
 					<h3 className="Media-title">{this.props.title}</h3>
