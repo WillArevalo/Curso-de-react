@@ -10,9 +10,9 @@ import data from '../api.json';
 //importo la bd provisoria
 
 //Referencio el elemento en donde estara vivo react
-const app = document.getElementById('app')
+const homeContainer = document.getElementById('home-container');
 
 //ReactDom.render(que voy a renderizar(elemento, o componente), o solo render() depende de como lo hallamos declarado donde lo haré(en que parte del dom));
 //Le enviamos propiedades al componente
-render(<Home data={data} />, app);
+render(<Home data={data} />, homeContainer);
 //En este punto ejecuto en cli el comando npm run build:prod

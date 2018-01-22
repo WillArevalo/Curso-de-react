@@ -10,13 +10,7 @@ function Playlist(props) {
 		<div className = "Playlist">
 			{
 				props.playlist.map((item) =>{
-					return (
-						<Media
-						 {...item}
-						 key={item.id}
-						 handleClick={this.handleOpenModal}
-						/>
-					)
+					return <Media {...item} key={item.id} />
 				})
 			}
 		</div>

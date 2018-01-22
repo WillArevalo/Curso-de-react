@@ -1,11 +1,13 @@
 import React from 'react';
+import './modal.css';
 
-// las propiedades del click viene de propiedades
 function Modal(props){
-	return (
-		<div>
+	return(
+		// las propiedades del click viene de propiedades
+		<div className="Modal">
 			Esto es un modal
 			{props.children}
+		<button onClick={props.handleClick} className="Modal-close"></button>
 		</div>
 	)
 }

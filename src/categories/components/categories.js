@@ -4,16 +4,10 @@ import './categories.css';
 
 function Categories(props){
 	return (
-		<div className="Categories" >
+		<div className="Categories">
 			{
 				props.categories.map((item) => {
-					return (
-						<Category 
-							key={item.id} 
-							{...item} 
-							handleOpenModal={props.handleOpenModal}
-						/>
-					)
+					return <Category key={item.id} {...item} />
 				} )
 			}
 		</div>
