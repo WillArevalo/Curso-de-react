@@ -14,12 +14,18 @@ class Video extends Component{
 		this.video = element;
 	}
 	render(){
+		//Cojemos solo la metadata de las props que nos llegan
+		const {
+			handleLoadedMetadata,
+		} = this.props;
 		return(
 			<div className="Video">
 				<video
 					ref={this.setRef}
 					autoPlay={this.props.autoplay}
 					src={this.props.src}
+					onLoadedMetadata={handleLoadedMetadata}
+
 				/>
 			</div>
 		)
