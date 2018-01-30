@@ -17,6 +17,7 @@ class Video extends Component{
 		//Cojemos solo la metadata de las props que nos llegan
 		const {
 			handleLoadedMetadata,
+			handleTimeUpdate,
 		} = this.props;
 		return(
 			<div className="Video">
@@ -25,7 +26,7 @@ class Video extends Component{
 					autoPlay={this.props.autoplay}
 					src={this.props.src}
 					onLoadedMetadata={handleLoadedMetadata}
-
+					onTimeUpdate={handleTimeUpdate}
 				/>
 			</div>
 		)
