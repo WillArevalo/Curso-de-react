@@ -18,6 +18,8 @@ class Video extends Component{
 		const {
 			handleLoadedMetadata,
 			handleTimeUpdate,
+			handleSeeking,
+			handleSeeked,
 		} = this.props;
 		return(
 			<div className="Video">
@@ -25,8 +27,14 @@ class Video extends Component{
 					ref={this.setRef}
 					autoPlay={this.props.autoplay}
 					src={this.props.src}
+					//Saber el tiempo del video en segundos
 					onLoadedMetadata={handleLoadedMetadata}
+					//El tiempo en el que se encuentra
 					onTimeUpdate={handleTimeUpdate}
+					//Me estoy moviendo
+					onSeeking={handleSeeking}
+					//Ya me movi, ya termine
+					onSeeked={handleSeeked}
 				/>
 			</div>
 		)
