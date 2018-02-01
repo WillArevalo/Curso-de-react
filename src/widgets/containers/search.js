@@ -3,7 +3,7 @@ import Search from '../components/search.js'
 
 class SearchContainer extends Component {
 	state = {
-		value: 'Luis Fonsi'
+		value: ''
 	}
 	//la funcion handleSubmit evita que la pagina se recargue
 	handleSubmit = event => {

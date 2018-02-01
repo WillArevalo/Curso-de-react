@@ -4,4 +4,5 @@
 .Video video {
 	width: inherit;
 	vertical-align: middle;
+	border-radius: 10px;
 }

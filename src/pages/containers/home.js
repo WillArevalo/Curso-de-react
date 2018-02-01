@@ -42,14 +42,13 @@ class Home extends Component {
 						categories={this.props.data.categories} 
 						handleOpenModal = { this.handleOpenModal }
 					/>
-					<VideoPlayer
-						autoplay
-					/>
 					{
 						this.state.modalVisible &&
 						<ModalContainer>
 							<Modal handleClick={this.handleCloseModal}>
-								<h1>Hola</h1>
+								<VideoPlayer
+									autoplay
+								/>
 							</Modal>
 						</ModalContainer>
 					}
