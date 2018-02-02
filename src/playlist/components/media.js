@@ -31,7 +31,7 @@ class Media extends PureComponent {
 			<div className="Media" onClick={this.props.handleClick}>
 				<div className="Media-cover">
 					<img className="Media-image" src={this.props.cover} alt="" width={260} height={160}/>
-					<h3 className="Media-title">{this.props.title}</h3>
+					<h4 className="Media-title">{this.props.title}</h4>
 					<p className="Media-author">{this.props.author}</p>
 				</div>
 			</div>

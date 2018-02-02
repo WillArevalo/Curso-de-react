@@ -2,7 +2,7 @@
 	display: flex;
 	position: absolute;
 	background: rgba(0,0,0,.4);
-	bottom: 10px;
+	top: 300px;
 	left: 10px;
 	right: 10px;
 	z-index: 2;
