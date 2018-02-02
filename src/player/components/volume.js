@@ -7,20 +7,21 @@ const Volume = props => {
 		<div
 			className="Volume"
 		>
-			<div>
+			<div onClick={ props.handleResetVolume }>
 				<VolumenIcon
-					color="#3BADE3"
+					color={props.color}
 					size={25}
 				/>
-				<div className="Volume-range">
-					<input 
-						step={.05}
-						type="range"
-						min={0}
-						max={1}
-						onChange={props.handleVolumeChange}
-					/>
-				</div>
+			</div>
+			<div className="Volume-range">
+				<input 
+					step={.05}
+					type="range"
+					min={0}
+					max={1}
+					onChange={props.handleVolumeChange}
+					value={props.volume}
+				/>
 			</div>
 		</div>
 	)

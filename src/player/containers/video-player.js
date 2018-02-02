@@ -9,6 +9,7 @@ import FormattedTime from '../../libs/utilities.js';
 import ProgressBar from '../components/progress-bar.js';
 import Spinner from '../components/spinner.js';
 import Volume from '../components/volume.js';
+import Fullscreen from '../components/fullscreen.js';
 
 class VideoPlayer extends Component{
 	state = {
@@ -18,6 +19,9 @@ class VideoPlayer extends Component{
 		durationFloat: 0,
 		timeFloat: 0,
 		loading: false,
+		lvolume: 1,
+		lastValue: null,
+		colorVol: "rgb(59,173,227)",
 	}
 	togglePlay = (event) => {
 		this.setState({
@@ -59,13 +63,56 @@ class VideoPlayer extends Component{
 			loading:!this.state.loading,
 		})
 	}
+	handleResetVolume = () => {
+	    const lastValue = this.video.volume
+	    this.setState({ lastValue })
+	    if(this.video.volume !== 0) {
+	      this.video.volume = 0
+	      this.setState({ 
+	      	volume: this.video.volume,
+	      	colorVol: "rgb(255,53,127)",
+	       })
+	    }else {
+	      this.video.volume = this.state.lastValue
+	      this.setState({ 
+	      	volume: this.video.volume,
+	      	colorVol: "rgb(59,173,227)",
+	      	})
+	    }
+	}
 	handleVolumeChange = event => {
-		this.video.volume = event.target.value;
+	    this.video.volume = event.target.value
+	    this.setState({ 
+	    	volume: this.video.volume 
+	    })
+	}
+	handleFullscreenClick = event => {
+		// if(si no estoy en fullscreen){
+		// 	mando a fullscreen
+		// }else{
+		// 	salgo de fullscreen
+		// }
+		if(document.webkitIsFullScreen){
+	      document.webkitExitFullscreen()
+	    } else if(document.mozFullScreen) {
+	      document.mozCancelFullScreen()
+	    } else{
+	      if ( this.player.webkitRequestFullscreen ) {
+	        this.player.webkitRequestFullscreen()
+	      } else if ( this.player.mozRequestFullScreen ) {
+	        this.player.mozRequestFullScreen()
+	      }
+	    }
+	}
+	setRef = element => {
+		this.player = element;
 	}
 	render(){
 		return(
-			<VideoPlayerLayout>
-				<Title title="Video chido"/>
+			<VideoPlayerLayout
+				setRef={this.setRef}
+			>
+				<Title title={this.props.title}/>
 				<Controls>
 					<PlayPause 
 						pause={this.state.pause}
@@ -81,7 +128,13 @@ class VideoPlayer extends Component{
 						currentTime={this.state.currentTime}
 					/>
 					<Volume
-						handleVolumeChange={this.handleVolumeChange}
+						handleResetVolume={this.handleResetVolume}
+			            handleVolumeChange={this.handleVolumeChange}
+						volume={this.state.volume}
+						color={this.state.colorVol}
+					/>
+					<Fullscreen 
+						handleFullscreenClick = {this.handleFullscreenClick}
 					/>
 				</Controls>
 				{ this.state.loading && <Spinner/> }
@@ -90,7 +143,7 @@ class VideoPlayer extends Component{
 					pause={this.state.pause}
 					handleLoadedMetadata={this.handleLoadedMetadata}
 					handleTimeUpdate={this.handleTimeUpdate}
-					src="http://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
+					src={this.props.src}
 					handleSeeking={this.handleSeeking}
 					handleSeeked={this.handleSeeked}
 				/>

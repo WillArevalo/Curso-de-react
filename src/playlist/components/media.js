@@ -19,16 +19,18 @@ class Media extends PureComponent {
 	// 	this.handleClick = this.handleClick.bind(this);
 	// }
 	//Creamos la funcion que se ejecuta cuando sea click en el div
-	// handleClick = (event) => {
-	// 	//console.log(this.props.cover);
-	// 	this.setState({
-	// 		author: 'Ricardo Celis'
-	// 	})
-	// }
+	handleClick = (event) => {
+		//console.log(this.props.cover);
+		// this.setState({
+		// 	author: 'Ricardo Celis'
+		// })
+		//Con esto recojemos todos los props actuales
+		this.props.openModal(this.props);
+	}
 	render(){
 		return(
 			//Creamos un escuchador de eventos con onClick
-			<div className="Media" onClick={this.props.handleClick}>
+			<div className="Media" onClick={this.handleClick}>
 				<div className="Media-cover">
 					<img className="Media-image" src={this.props.cover} alt="" width={260} height={160}/>
 					<h4 className="Media-title">{this.props.title}</h4>

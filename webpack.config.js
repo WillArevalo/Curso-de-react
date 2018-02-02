@@ -17,7 +17,7 @@ module.exports = (env) => {
   return {
 
     entry: {
-      "video-platzi": path.resolve(__dirname, 'index.js'),
+      "home": path.resolve(__dirname, 'src/entries/home.js')
     },
     output: {
       path: path.resolve(__dirname, 'dist'),
@@ -60,7 +60,7 @@ module.exports = (env) => {
           use: {
             loader: 'url-loader',
             options: {
-              limit: 10000,
+              limit: 1000000,
               fallback: 'file-loader',
               name: 'images/[name].[hash].[ext]',
             }
